@@ -1,0 +1,61 @@
+# CMake 빌드 파일
+cmake-build-*/
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# 실행 파일
+*.out
+*.exe
+a.out
+
+# 카테고리 폴더 내 모든 실행 파일 차단
+bfs/*
+dfs/*
+dp/*
+greedy/*
+graph/*
+implementation/*
+string/*
+data_structure/*
+math/*
+bruteforce/*
+binary_search/*
+sorting/*
+backtracking/*
+simulation/*
+
+# 단, cpp 파일은 포함
+!bfs/*.cpp
+!dfs/*.cpp
+!dp/*.cpp
+!greedy/*.cpp
+!graph/*.cpp
+!implementation/*.cpp
+!string/*.cpp
+!data_structure/*.cpp
+!math/*.cpp
+!bruteforce/*.cpp
+!binary_search/*.cpp
+!sorting/*.cpp
+!backtracking/*.cpp
+!simulation/*.cpp
+
+# 입출력 파일도 포함 (필요시)
+!**/input.txt
+!**/output.txt
+
+# CLion
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/shelf/
+
+# macOS
+.DS_Store
+
+# 테스트 입출력 파일 (선택사항 - 필요하면 주석 해제)
+# input.txt
+# output.txt
