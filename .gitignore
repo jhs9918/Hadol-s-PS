@@ -59,3 +59,6 @@ simulation/*
 # 테스트 입출력 파일 (선택사항 - 필요하면 주석 해제)
 # input.txt
 # output.txt
+
+# 개인 학습 가이드
+STUDY_GUIDE.md
