@@ -28,6 +28,5 @@ int main() {
     int n; cin >> n;
     cout << line[n-1];
 
-
     return 0;
 }
