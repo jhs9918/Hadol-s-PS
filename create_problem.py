@@ -247,6 +247,9 @@ int main() {{
 
 
 def main():
+    # 항상 스크립트 파일 위치 기준으로 실행
+    os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
     parser = argparse.ArgumentParser(description='알고리즘 문제 파일 자동 생성')
     parser.add_argument('url', nargs='?', help='문제 URL')
     parser.add_argument('-c', '--category', help='카테고리 폴더명')

@@ -23,10 +23,19 @@ int main() {
     cin.tie(nullptr);
     cout.tie(nullptr);
 
-    string line;
-    cin >> line;
-    int n; cin >> n;
-    cout << line[n-1];
+    // string line;
+    // cin >> line;
+    // int n; cin >> n;
+    // cout << line[n-1];
 
-    return 0;
+    vector<int> v = {0, 1, 2};
+    int tmp = 0, answer = 0;
+    int len = v.size();
+    for(int i = 0 ; i<len ; i++) {
+        cout << v.front() << "--";
+        tmp = v[i];
+        cout<<tmp<<"--";
+        answer+=tmp;
+    }
+
 }

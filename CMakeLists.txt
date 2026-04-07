@@ -22,6 +22,7 @@ file(GLOB_RECURSE SOURCE_FILES
         "sorting/*.cpp"
         "backtracking/*.cpp"
         "simulation/*.cpp"
+        "miscellaneous/*.cpp"
 )
 
 # 각 소스 파일마다 개별 실행 파일 생성
@@ -35,7 +36,9 @@ foreach(SOURCE_FILE ${SOURCE_FILES})
     # 실행 파일 이름: 카테고리_문제번호 형식
     set(FULL_EXECUTABLE_NAME "${DIR_NAME}_${EXECUTABLE_NAME}")
 
-    add_executable(${FULL_EXECUTABLE_NAME} ${SOURCE_FILE})
+    add_executable(${FULL_EXECUTABLE_NAME} ${SOURCE_FILE}
+            miscellaneous/1.cpp
+            miscellaneous/2.cpp)
 endforeach()
 
 # 기본 main.cpp도 유지

@@ -1,7 +1,8 @@
 #!/bin/bash
 # CLion에서 실행하는 문제 생성 스크립트 (macOS용)
 
-cd "$(dirname "$0")"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
 
 # URL 입력 다이얼로그
 URL=$(osascript -e 'Tell application "System Events" to display dialog "문제 URL을 입력하세요:" default answer "" with title "새 문제 생성"' -e 'text returned of result' 2>/dev/null)
@@ -14,7 +15,7 @@ fi
 # 카테고리 선택 다이얼로그
 CATEGORY=$(osascript <<EOF
 tell application "System Events"
-    set categoryList to {"DP", "Greedy", "Graph", "BFS", "DFS", "Implementation", "String", "Data Structure", "Math", "Bruteforce", "Binary Search", "Sorting", "Backtracking", "Simulation"}
+    set categoryList to {"DP", "Greedy", "Graph", "BFS", "DFS", "Implementation", "String", "Data Structure", "Math", "Bruteforce", "Binary Search", "Sorting", "Backtracking", "Simulation", "Miscellaneous"}
     set selectedCategory to choose from list categoryList with prompt "카테고리를 선택하세요:" default items {"BFS"}
 
     if selectedCategory is false then
@@ -47,6 +48,7 @@ case "$CATEGORY" in
     "Sorting") FOLDER="sorting" ;;
     "Backtracking") FOLDER="backtracking" ;;
     "Simulation") FOLDER="simulation" ;;
+    "Miscellaneous") FOLDER="miscellaneous" ;;
     *) FOLDER="implementation" ;;
 esac
 
@@ -54,7 +56,7 @@ esac
 osascript <<EOF
 tell application "Terminal"
     activate
-    do script "cd '$PWD' && python3 create_problem.py '$URL' -c '$FOLDER' && echo '\n✅ 완료! CLion에서 CMake를 Reload 하세요.\n' && read -p '아무 키나 누르면 종료합니다...' && exit"
+    do script "python3 '$SCRIPT_DIR/create_problem.py' '$URL' -c '$FOLDER'; echo ''; echo '✅ 완료! CLion에서 CMake를 Reload 하세요.'; read -p '아무 키나 누르면 종료합니다...'"
 end tell
 EOF
 
